@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<strong><span class="card-title">Beställning</span> </strong> 
+
+<table class="responsive-table striped">
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Telefon</th>
+      <th>Email</th>
+      <th>Kategori</th>
+      <th>Beskrivning</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <% if order.user == current_user %>
+          <td><%= order.name %></td>
+          <td><%= order.telefon %></td>
+          <td><%= order.user.email %></td>
+          <td><%= order.kategori %></td>
+          <td><%= order.beskrivning %></td>
+          <td><%= link_to 'Visa', order %></td>
+          <td><%= link_to 'Ändra', edit_order_path(order) %></td>
+          <td><%= link_to 'Ta Bort', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>  
+      
+      <% if  current_user.admin? %>
+          <td><%= order.name %></td>
+          <td><%= order.telefon %></td>
+          <td><%= order.user.email %></td>
+          <td><%= order.kategori %></td>
+          <td><%= order.beskrivning %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br><br><br>
+<% if !current_user.admin? %>
+  <%= link_to 'Ny Beställning', new_order_path %>
+<%end%>

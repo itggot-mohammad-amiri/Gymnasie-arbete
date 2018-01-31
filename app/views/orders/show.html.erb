@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Namn och Efternamn:</strong>
+  <%= @order.name %>
+</p>
+
+<p>
+  <strong>Telefon:</strong>
+  <%= @order.telefon %>
+</p>
+
+<p>
+  <strong>Kategori:</strong>
+  <%= @order.kategori %>
+</p>
+
+<p>
+  <strong>Beskrivning:</strong>
+  <%= @order.beskrivning %>
+</p>
+
+<%= link_to 'Ändra', edit_order_path(@order) %> |
+<%= link_to 'Tillbaka', orders_path %>

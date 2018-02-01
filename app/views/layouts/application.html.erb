@@ -19,6 +19,9 @@
         $('.slider').slider(
           
         );
+        $(document).ready(function(){
+          $('.parallax').parallax();
+        });
       });
     </script>
 
@@ -58,6 +61,10 @@
                 <li><%= link_to  "Sign up", new_user_registration_path %></li>
               <% end %>
             </ul>
+          </div>
+          <div class="green">
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
           </div>
         </nav>
       

@@ -24,8 +24,6 @@
           <td><%= order.kategori %></td>
           <td><%= order.beskrivning %></td>
           <td><%= link_to 'Visa', order %></td>
-          <td><%= link_to 'Ändra', edit_order_path(order) %></td>
-          <td><%= link_to 'Ta Bort', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>  
       
       <% if  current_user.admin? %>
@@ -34,6 +32,8 @@
           <td><%= order.user.email %></td>
           <td><%= order.kategori %></td>
           <td><%= order.beskrivning %></td>
+          <!-- <td><%= link_to 'Ändra', edit_order_path(order) %></td> -->
+          <td><%= link_to 'Ta Bort', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
